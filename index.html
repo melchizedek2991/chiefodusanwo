@@ -10,23 +10,26 @@
 <body>
     <header>
         <div class="logo">
-          <a href="#">Chief Abiodun</a>
+            <a href="#">Chief Abiodun</a>
+        </div>
+        <div class="menu-toggle" id="mobile-menu">
+            <i class="fas fa-bars"></i> <!-- Font Awesome icon for the toggle button -->
         </div>
         <nav>
-          <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#Services">Services</a></li>
-            <li><a href="#Testimonials">Testimonials</a></li>
-            <li><a href="#blog">Blog</a></li>
-            <li><a href="#footer">Contact</a></li>
-          </ul>
+            <ul id="nav-list">
+                <li><a href="#">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#footer">Contact</a></li>
+                <li class="social-links">
+                    <a href="https://www.linkedin.com/in/abiodun-odusanwo-8a813b4b/?originalSubdomain=ng" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://x.com/Abiodus/status/577223808039460866" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/abiodun.odusanwo/" target="_blank"><i class="fab fa-instagram"></i></a>
+                </li>
+            </ul>
         </nav>
-        <div class="social-links">
-          <a href="https://www.linkedin.com/in/abiodun-odusanwo-8a813b4b/?originalSubdomain=ng" target="_blank"><i class="fab fa-linkedin"></i></a>
-          <a href="https://x.com/Abiodus/status/577223808039460866" target="_blank"><i class="fab fa-twitter"></i></a>
-          <a href="https://www.instagram.com/abiodun.odusanwo/" target="_blank"><i class="fab fa-instagram"></i></a>
-        </div>
     </header>
 
     <!-----------------------hero section--------------------------------------------->
@@ -283,6 +286,14 @@
 </footer>
 
     <script>
+        // JavaScript to enable the toggle functionality
+        const mobileMenu = document.getElementById('mobile-menu');
+            const nav = document.getElementById('nav-list');
+
+            mobileMenu.addEventListener('click', () => {
+                nav.classList.toggle('active'); // Toggle the active class to show/hide the menu
+            });
+
         // JavaScript for image carousel
         let currentIndex = 0;
         const images = document.querySelectorAll('.hero-image');

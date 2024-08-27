@@ -56,6 +56,61 @@ body {
     color: #ccc;
   }
 
+/* Mobile Styles */
+.menu-toggle {
+  display: none; /* Initially hide the toggle button */
+  cursor: pointer; /* Change cursor to pointer */
+}
+
+nav {
+  display: flex; /* Display the nav in a row */
+}
+
+nav ul {
+  flex-direction: row; /* Default to row on larger screens */
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+      display: block; /* Show toggle button on mobile */
+  }
+
+  nav {
+      display: none; /* Hide navigation by default */
+      width: 100%; /* Full width for the nav */
+      background-color: #4b0404; /* Match the header background */
+      position: absolute; /* Position it absolutely */
+      top: 100%; /* Position below the header */
+      left: 0; /* Align to the left */
+      z-index: 1000; /* Ensure it appears above other content */
+  }
+
+  nav.active {
+      display: flex; /* Show nav when active */
+      flex-direction: column; /* Stack items vertically */
+  }
+
+  nav ul {
+      flex-direction: column; /* Stack links vertically */
+      width: 100%; /* Full width for the links */
+  }
+
+  nav li {
+      margin: 10px 0; /* Space between links */
+      text-align: center; /* Center align text */
+  }
+
+  .social-links {
+      display: flex; /* Display social links horizontally */
+      justify-content: center; /* Center align social links */
+      margin-top: 20px; /* Add space above social links */
+  }
+
+  .social-links a {
+      margin: 0 10px; /* Add spacing between social links */
+  }
+}
+
 
   /*-------------------------hero section-----------------------------------*/
 /* Hero Section Styles */
