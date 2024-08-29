@@ -75,7 +75,7 @@
 </section>
 
 <!-----------------------Services Section--------------------------------------------->
-<section id= "Services" class="services">
+<section id="Services" class="services">
   <div class="services-content">
       <h2 class="services-title">Services</h2>
       <p class="services-subtitle">Educational Consultant, Institutional Strengthening Practitioner, Educational Assessor, and Quality Assurance Expert.</p>
@@ -286,13 +286,13 @@
 </footer>
 
     <script>
-        // JavaScript to enable the toggle functionality
-        const mobileMenu = document.getElementById('mobile-menu');
-            const nav = document.getElementById('nav-list');
+       // JavaScript to enable the toggle functionality
+    const mobileMenu = document.getElementById('mobile-menu');
+    const nav = document.querySelector('nav'); // Select the nav element
 
-            mobileMenu.addEventListener('click', () => {
-                nav.classList.toggle('active'); // Toggle the active class to show/hide the menu
-            });
+    mobileMenu.addEventListener('click', () => {
+        nav.classList.toggle('active'); // Toggle the active class to show/hide the menu
+    });
 
         // JavaScript for image carousel
         let currentIndex = 0;

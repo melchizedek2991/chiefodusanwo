@@ -55,7 +55,6 @@ body {
   .social-links a:hover {
     color: #ccc;
   }
-
 /* Mobile Styles */
 .menu-toggle {
   display: none; /* Initially hide the toggle button */
@@ -83,11 +82,11 @@ nav ul {
       top: 100%; /* Position below the header */
       left: 0; /* Align to the left */
       z-index: 1000; /* Ensure it appears above other content */
+      flex-direction: column; /* Stack items vertically */
   }
 
   nav.active {
       display: flex; /* Show nav when active */
-      flex-direction: column; /* Stack items vertically */
   }
 
   nav ul {
@@ -110,6 +109,7 @@ nav ul {
       margin: 0 10px; /* Add spacing between social links */
   }
 }
+
 
 
   /*-------------------------hero section-----------------------------------*/
