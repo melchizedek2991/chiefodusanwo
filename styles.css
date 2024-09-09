@@ -1,72 +1,67 @@
+/* Basic styling */
 body {
-    margin: 0;
-    padding: 0;
-    font-family:  'Poppins', Arial, sans-serif;
-    overflow-x: hidden;
-    box-sizing: border-box;
-} 
-  /* Header Styles */
-  header {
-    background-color: #4b0404;
-    color: #fff;
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .logo a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 24px;
-    font-weight: bold;
-  }
-  
-  /* Navigation Bar Styles */
-  nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-  }
-  
-  nav li {
-    margin-right: 20px;
-  }
-  
-  nav a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 16px;
-    padding: 10px;
-  }
-  
-  nav a:hover {
-    background-color: #555;
-  }
-  
-  /* Social Media Links Styles */
-  .social-links a {
-    color: #fff;
-    margin-left: 10px;
-    font-size: 20px;
-  }
-  
-  .social-links a:hover {
-    color: #ccc;
-  }
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', Arial, sans-serif;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+/* Header Styles */
+header {
+  background-color: #4b0404;
+  color: #fff;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Navigation Bar Styles */
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+nav li {
+  margin-right: 20px;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 10px;
+}
+
+nav a:hover {
+  background-color: #555;
+}
+
+/* Social Media Links Styles */
+.social-links a {
+  color: #fff;
+  margin-left: 10px;
+  font-size: 20px;
+}
+
+.social-links a:hover {
+  color: #ccc;
+}
+
 /* Mobile Styles */
 .menu-toggle {
   display: none; /* Initially hide the toggle button */
   cursor: pointer; /* Change cursor to pointer */
-}
-
-nav {
-  display: flex; /* Display the nav in a row */
-}
-
-nav ul {
-  flex-direction: row; /* Default to row on larger screens */
 }
 
 @media (max-width: 768px) {
@@ -75,14 +70,18 @@ nav ul {
   }
 
   nav {
-      display: none; /* Hide navigation by default */
-      width: 100%; /* Full width for the nav */
-      background-color: #4b0404; /* Match the header background */
-      position: absolute; /* Position it absolutely */
-      top: 100%; /* Position below the header */
-      left: 0; /* Align to the left */
-      z-index: 1000; /* Ensure it appears above other content */
+      display: none; /* Hide navigation by default on mobile */
       flex-direction: column; /* Stack items vertically */
+      background-color: #4b0404;
+      position: absolute;
+      top: 60px; /* Adjust top position as needed */
+      right: 0; /* Position at the right edge */
+      width: 180px; /* Set a narrower width for the dropdown menu */
+      max-height: 300px; /* Limit the height of the dropdown */
+      padding: 5px; /* Reduced padding */
+      overflow-y: auto; /* Add scroll if content overflows */
+      z-index: 1000; /* Ensure nav is above other elements */
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Optional: Add shadow for better visibility */
   }
 
   nav.active {
@@ -91,113 +90,126 @@ nav ul {
 
   nav ul {
       flex-direction: column; /* Stack links vertically */
-      width: 100%; /* Full width for the links */
+      width: 100%;
+      margin: 0; /* Remove default margin */
+      padding: 0; /* Remove default padding */
   }
 
   nav li {
-      margin: 10px 0; /* Space between links */
-      text-align: center; /* Center align text */
+      margin: 1px 0; /* Reduced space between links */
+  }
+
+  nav a {
+      padding: 8px 10px; /* Reduced padding around each link */
+      display: block;
+      font-size: 14px; /* Optional: Adjust font size */
   }
 
   .social-links {
-      display: flex; /* Display social links horizontally */
-      justify-content: center; /* Center align social links */
-      margin-top: 20px; /* Add space above social links */
+      display: flex; /* Use flexbox for horizontal layout */
+      justify-content: flex-start; /* Align items to the left */
+      margin-top: 5px; /* Reduced margin for social links */
   }
 
   .social-links a {
-      margin: 0 10px; /* Add spacing between social links */
+      margin: 0 2px; /* Reduce space between social icons */
+      font-size: 16px; /* Optional: Adjust icon size */
+  }
+}
+
+/* Hide close icon in mobile view */
+@media (max-width: 768px) {
+  .fa-times {
+      display: none; /* Hide the close icon */
   }
 }
 
 
 
-  /*-------------------------hero section-----------------------------------*/
+/*-------------------------hero section-----------------------------------*/
 /* Hero Section Styles */
 .hero {
-    position: relative; /* Position for absolute content */
-    height: 80vh; /* Full viewport height */
-    overflow: hidden; /* Hide overflow */
-    margin-bottom: 50px;
+  position: relative; /* Position for absolute content */
+  height: 80vh; /* Full viewport height */
+  overflow: hidden; /* Hide overflow */
+  margin-bottom: 50px;
 }
 
 .carousel {
-    display: flex;
-    transition: transform 0.5s ease-in-out; /* Smooth transition */
-    height: 100%; /* Full height */
-}
-
- /* Add some basic styles for the carousel */
- .carousel {
-    display: flex; /* Arrange images in a row */
-    transition: transform 0.5s ease-in-out; /* Smooth transition */
-    height: 100%; /* Full height */
+  display: flex;
+  transition: transform 0.5s ease-in-out; /* Smooth transition */
+  height: 100%; /* Full height */
 }
 
 .hero-image {
-    min-width: 100%; /* Full width for each image */
-    height: 100%; /* Full height */
-    object-fit: cover; /* Cover the entire section */
-}
-
-.hero-image {
-    min-width: 100%; /* Full width for each image */
-    height: 100%; /* Full height */
-    object-fit: cover; /* Cover the entire section */
+  min-width: 100%; /* Full width for each image */
+  height: 100%; /* Full height */
+  object-fit: cover; /* Cover the entire section */
 }
 
 .hero-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    width: 80%;
-    max-width: 800px;
-    padding: 20px;
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-    border-radius: 5px;
-    color: #fff; /* Text color */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 80%;
+  max-width: 800px;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  border-radius: 5px;
+  color: #fff; /* Text color */
 }
 
 .hero-content h1 {
-    font-size: 48px;
-    margin-bottom: 20px;
+  font-size: 48px;
+  margin-bottom: 20px;
 }
 
 .hero-content p {
-    font-size: 24px;
-    margin-bottom: 40px;
+  font-size: 24px;
+  margin-bottom: 40px;
 }
 
 .hero-content .btn {
-    display: inline-block;
-    background-color: #007bff;
-    color: #fff;
-    text-decoration: none;
-    padding: 12px 30px;
-    border-radius: 5px;
-    font-size: 18px;
-    transition: background-color 0.3s ease;
+  display: inline-block;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  padding: 12px 30px;
+  border-radius: 5px;
+  font-size: 18px;
+  transition: background-color 0.3s ease;
 }
 
 .hero-content .btn:hover {
-    background-color: #0056b3;
+  background-color: #0056b3;
 }
+
 /* Responsive Styles */
 @media (max-width: 767px) {
-    .hero-content h1 {
-        font-size: 36px;
-    }
+  .hero-content {
+      width: 90%; /* Adjust width for mobile */
+      padding: 15px; /* Reduce padding */
+      top: 40%; /* Adjust vertical positioning */
+  }
 
-    .hero-content p {
-        font-size: 18px;
-    }
+  .hero-content h1 {
+      font-size: 32px; /* Further reduced font size */
+  }
 
-    .hero-content .btn {
-        font-size: 16px;
-    }
+  .hero-content p {
+      font-size: 16px; /* Further reduced font size */
+      margin-bottom: 30px; /* Adjust margin */
+  }
+
+  .hero-content .btn {
+      font-size: 14px; /* Reduced font size */
+      padding: 10px 20px; /* Reduced padding */
+      margin-top: 10px; /* Push button up a bit */
+  }
 }
+
 
 /*-------------------------About Section-----------------------------------*/
 .about {
@@ -394,6 +406,57 @@ nav ul {
   transform: translateX(0); /* Move to original position */
 }
 
+
+
+/* Mobile Responsive Styles */
+@media (max-width: 767px) {
+  .testimonials-details {
+    flex-direction: column; /* Stack images and text vertically */
+    align-items: center; /* Center items horizontally */
+    width: 100%; /* Full width */
+    margin-top: 20px; /* Adjust margin for mobile view */
+    margin-bottom: 20px; /* Adjust margin for mobile view */
+    position: relative; /* Ensure relative positioning for child elements */
+  }
+
+  .testimonials-image {
+    width: 100%; /* Full width for images container */
+    padding: 0; /* Remove padding for mobile view */
+    margin: 0; /* Remove margin */
+    text-align: center; /* Center align images */
+    position: absolute; /* Absolute positioning to allow overlapping with text */
+    top: 0; /* Align to the top */
+    left: 0; /* Align to the left */
+  }
+
+  .testimonials-image img {
+    width: 80%; /* Reduce image size */
+    height: auto; /* Maintain aspect ratio */
+    max-width: 300px; /* Set a maximum width for images */
+    margin-bottom: 10px; /* Space below image */
+    display: block; /* Ensure image is block-level for spacing */
+    opacity: 0; /* Start hidden for animation */
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth transition */
+  }
+
+  .testimonials-text {
+    width: 100%; /* Full width for text container */
+    margin-top: 50px; /* Adjust margin to create space for images */
+    text-align: center; /* Center align text */
+    position: relative; /* Ensure text is on top of images */
+    z-index: 1; /* Place text above images */
+  }
+
+  .testimonial-quote {
+    position: relative; /* Ensure quotes are positioned correctly */
+    margin: 10px 0; /* Space between quotes */
+    font-size: 14px; /* Adjust font size for readability */
+    opacity: 0; /* Start hidden for animation */
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth transition */
+  }
+}
+
+
 /*-------------------------blog details-----------------------------------*/
 
 .blog-section {
@@ -419,9 +482,9 @@ nav ul {
   flex-direction: column; /* Stack rows vertically */
   align-items: center; /* Center items */
   box-sizing: border-box; 
-  margin-left:120px;
-  margin-right: 50px;
-  margin-top: 50px;
+  margin-left: 120px; /* Adjust margin for desktop view */
+  margin-right: 50px; /* Adjust margin for desktop view */
+  margin-top: 50px; /* Adjust margin for desktop view */
 }
 
 .blog-row {
@@ -437,12 +500,12 @@ nav ul {
 }
 
 .blog-item img {
-    width: 90px; /* Make the image responsive */
-    height: 90px; /* Set a fixed height for all images */
-    object-fit: cover; /* Maintain aspect ratio and fill the height */
-    object-position: center; /* Center the image */
-    border-radius: 8px; /* Optional: rounded corners */
-    margin-right: 10px;
+  width: 90px; /* Make the image responsive */
+  height: 90px; /* Set a fixed height for all images */
+  object-fit: cover; /* Maintain aspect ratio and fill the height */
+  object-position: center; /* Center the image */
+  border-radius: 8px; /* Optional: rounded corners */
+  margin-right: 10px;
 }
 
 hr {
@@ -468,6 +531,67 @@ hr {
   display: flex; /* Use flexbox for layout */
   align-items: center; /* Center items vertically */
 }
+
+/* Mobile Responsive Styles */
+@media (max-width: 767px) {
+  .blog-content {
+    margin-left: 10px; /* Adjust margin for mobile view */
+    margin-right: 10px; /* Adjust margin for mobile view */
+    margin-top: 20px; /* Adjust margin for mobile view */
+  }
+
+  .blog-row {
+    flex-direction: column; /* Stack blog rows vertically */
+    align-items: center; /* Center items in the row */
+  }
+
+  .blog-item {
+    flex: 1 1 100%; /* Each item takes full width */
+    margin: 10px 0; /* Space between items */
+    text-align: center; /* Center text */
+    position: relative; /* For positioning the hr */
+  }
+
+  .blog-flex {
+    flex-direction: column; /* Stack image and text vertically */
+    align-items: center; /* Center items */
+  }
+
+  .blog-item img {
+    width: 80%; /* Reduce the image size */
+    height: auto; /* Maintain aspect ratio */
+    max-width: 250px; /* Set a smaller maximum width for mobile view */
+    margin-bottom: 10px; /* Space below image */
+  }
+
+  .blog-text {
+    max-width: 100%; /* Allow text to take full width */
+    text-align: center; /* Center align text */
+    font-size: 14px; /* Reduce text size */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .blog-text p {
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+  }
+
+  .blog-text a {
+    display: block; /* Make "Read more" link block-level */
+    margin-top: 10px; /* Space above the link */
+  }
+
+  hr {
+    width: 50%; /* Adjust width as needed */
+    border: 1px solid #ccc; /* Horizontal line style */
+    margin: 20px auto; /* Center align the horizontal line */
+  }
+}
+
+
 
 /*------------------Video Section------------------------*/
 

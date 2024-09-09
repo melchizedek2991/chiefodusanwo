@@ -31,6 +31,9 @@
             </ul>
         </nav>
     </header>
+    
+    
+
 
     <!-----------------------hero section--------------------------------------------->
     <section class="hero">
@@ -247,6 +250,9 @@
 </section>
 
 
+<!-----------------------video Section--------------------------------------------->
+
+
 <section id="video" class="video-section">
     <h2 class="video-title">Explore Some Latest Videos</h2>
     <p class="video-subtitle">
@@ -256,6 +262,10 @@
         <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
 </section>
+
+
+
+<!-----------------------footer Section--------------------------------------------->
 
 <footer class="footer">
     <div class="footer-content">
@@ -285,67 +295,80 @@
     </div>
 </footer>
 
-    <script>
-       // JavaScript to enable the toggle functionality
+
+
+<script>
+    // JavaScript to enable the toggle functionality
     const mobileMenu = document.getElementById('mobile-menu');
-    const nav = document.querySelector('nav'); // Select the nav element
+    const nav = document.querySelector('nav');
+    const menuIcon = mobileMenu.querySelector('i'); // Select the icon inside the toggle button
 
     mobileMenu.addEventListener('click', () => {
-        nav.classList.toggle('active'); // Toggle the active class to show/hide the menu
+        // Toggle the active class on the nav element
+        nav.classList.toggle('active');
+
+        // Toggle between fa-bars and fa-times
+        if (nav.classList.contains('active')) {
+            menuIcon.classList.remove('fa-bars');
+            menuIcon.classList.add('fa-times'); // Show close icon
+        } else {
+            menuIcon.classList.remove('fa-times');
+            menuIcon.classList.add('fa-bars'); // Show hamburger icon
+        }
     });
 
-        // JavaScript for image carousel
-        let currentIndex = 0;
-        const images = document.querySelectorAll('.hero-image');
-        const totalImages = images.length;
-
-        function showNextImage() {
-            currentIndex = (currentIndex + 1) % totalImages; // Loop back to the first image
-            const offset = -currentIndex * 100; // Calculate offset
-            document.querySelector('.carousel').style.transform = `translateX(${offset}%)`;
-        }
-
-        // Set the interval to change images every 5 seconds (5000 milliseconds)
-        setInterval(showNextImage, 5000); // Change image every 5 seconds
-
-        document.addEventListener('DOMContentLoaded', function() {
-    const testimonialsDetails = document.querySelector('.testimonials-details');
-    const testimonialsImages = document.querySelectorAll('.testimonials-image img');
-    const testimonialsText = document.querySelectorAll('.testimonial-quote');
+    // JavaScript for image carousel
     let currentIndex = 0;
+    const images = document.querySelectorAll('.hero-image');
+    const totalImages = images.length;
 
-    function showNext() {
-        // Hide the current image and text
-        testimonialsImages[currentIndex].style.opacity = 0; // Fade out image
-        testimonialsImages[currentIndex].style.transform = 'translateX(-100%)'; // Move image off-screen
-        testimonialsText[currentIndex].style.transform = 'translateX(100%)'; // Move text off-screen
-        testimonialsText.forEach((quote) => {
-            quote.classList.remove('show'); // Hide all text
-        });
-
-        // Update index to the next image and text
-        currentIndex = (currentIndex + 1) % testimonialsImages.length;
-
-        // Show the next image and text
-        testimonialsImages[currentIndex].style.opacity = 1; // Fade in image
-        testimonialsImages[currentIndex].style.transform = 'translateX(0)'; // Move image to original position
-        testimonialsText[currentIndex].style.transform = 'translateX(0)'; // Move text to original position
-        testimonialsText[currentIndex].classList.add('show'); // Show current text
+    function showNextImage() {
+        currentIndex = (currentIndex + 1) % totalImages; // Loop back to the first image
+        const offset = -currentIndex * 100; // Calculate offset
+        document.querySelector('.carousel').style.transform = `translateX(${offset}%)`;
     }
 
-    // Initial setup to show the first image and text
-    setTimeout(() => {
-        testimonialsDetails.classList.add('show');
-        testimonialsImages[currentIndex].style.opacity = 1; // Fade in first image
-        testimonialsText[currentIndex].classList.add('show'); // Show first text
+    // Set the interval to change images every 5 seconds (5000 milliseconds)
+    setInterval(showNextImage, 5000); // Change image every 5 seconds
 
-        // Change image and text every 5 seconds
-        setInterval(() => {
-            showNext();
-        }, 5000); // 5 seconds
-    }, 100); // Initial delay
-});
-    </script>
+    // JavaScript for testimonials section
+    document.addEventListener('DOMContentLoaded', function() {
+        const testimonialsDetails = document.querySelector('.testimonials-details');
+        const testimonialsImages = document.querySelectorAll('.testimonials-image img');
+        const testimonialsText = document.querySelectorAll('.testimonial-quote');
+        let currentIndex = 0;
+
+        function showNext() {
+            // Hide the current image and text
+            testimonialsImages[currentIndex].style.opacity = 0; // Fade out image
+            testimonialsImages[currentIndex].style.transform = 'translateY(-20px)'; // Slide out image
+            testimonialsText[currentIndex].style.opacity = 0; // Fade out text
+            testimonialsText[currentIndex].style.transform = 'translateY(20px)'; // Slide out text
+
+            // Update index to the next image and text
+            currentIndex = (currentIndex + 1) % testimonialsImages.length;
+
+            // Show the next image and text
+            testimonialsImages[currentIndex].style.opacity = 1; // Fade in image
+            testimonialsImages[currentIndex].style.transform = 'translateY(0)'; // Slide in image
+            testimonialsText[currentIndex].style.opacity = 1; // Fade in text
+            testimonialsText[currentIndex].style.transform = 'translateY(0)'; // Slide in text
+        }
+
+        // Initial setup to show the first image and text
+        setTimeout(() => {
+            testimonialsDetails.classList.add('show');
+            testimonialsImages[currentIndex].style.opacity = 1; // Fade in first image
+            testimonialsText[currentIndex].style.opacity = 1; // Fade in first text
+
+            // Change image and text every 5 seconds
+            setInterval(() => {
+                showNext();
+            }, 5000); // 5 seconds
+        }, 100); // Initial delay
+    });
+</script>
+
 
    
 </body>
