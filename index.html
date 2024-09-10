@@ -331,42 +331,40 @@
     // Set the interval to change images every 5 seconds (5000 milliseconds)
     setInterval(showNextImage, 5000); // Change image every 5 seconds
 
-    // JavaScript for testimonials section
-    document.addEventListener('DOMContentLoaded', function() {
-        const testimonialsDetails = document.querySelector('.testimonials-details');
-        const testimonialsImages = document.querySelectorAll('.testimonials-image img');
-        const testimonialsText = document.querySelectorAll('.testimonial-quote');
-        let currentIndex = 0;
 
-        function showNext() {
-            // Hide the current image and text
-            testimonialsImages[currentIndex].style.opacity = 0; // Fade out image
-            testimonialsImages[currentIndex].style.transform = 'translateY(-20px)'; // Slide out image
-            testimonialsText[currentIndex].style.opacity = 0; // Fade out text
-            testimonialsText[currentIndex].style.transform = 'translateY(20px)'; // Slide out text
 
-            // Update index to the next image and text
-            currentIndex = (currentIndex + 1) % testimonialsImages.length;
+    //Javascript for testimonials section
+    document.addEventListener("DOMContentLoaded", function() {
+    let images = document.querySelectorAll(".testimonials-image img");
+    let quotes = document.querySelectorAll(".testimonial-quote");
+    let currentIndex = 0;
 
-            // Show the next image and text
-            testimonialsImages[currentIndex].style.opacity = 1; // Fade in image
-            testimonialsImages[currentIndex].style.transform = 'translateY(0)'; // Slide in image
-            testimonialsText[currentIndex].style.opacity = 1; // Fade in text
-            testimonialsText[currentIndex].style.transform = 'translateY(0)'; // Slide in text
-        }
+    // Function to show the next image and corresponding text
+    function showNext() {
+        // Fade out current image and quote
+        images[currentIndex].classList.remove('active');
+        quotes[currentIndex].classList.remove('active');
 
-        // Initial setup to show the first image and text
-        setTimeout(() => {
-            testimonialsDetails.classList.add('show');
-            testimonialsImages[currentIndex].style.opacity = 1; // Fade in first image
-            testimonialsText[currentIndex].style.opacity = 1; // Fade in first text
+        // Move to the next item, loop back if at the last image/quote
+        currentIndex = (currentIndex + 1) % images.length;
 
-            // Change image and text every 5 seconds
-            setInterval(() => {
-                showNext();
-            }, 5000); // 5 seconds
-        }, 100); // Initial delay
-    });
+        // Fade in next image and corresponding quote
+        images[currentIndex].classList.add('active');
+        quotes[currentIndex].classList.add('active');
+    }
+
+    // Initially show the first image and quote
+    images[currentIndex].classList.add('active');
+    quotes[currentIndex].classList.add('active');
+
+    // Cycle through images and quotes every 2 seconds (2000ms)
+    setInterval(showNext, 5000);
+});
+
+
+
+
+
 </script>
 
 
